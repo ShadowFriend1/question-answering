@@ -1,16 +1,8 @@
-# This is a sample Python script.
+import matplotlib
+from datasets import load_dataset
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    ds_openwebtext = load_dataset('openwebtext')
+    hendrycks_files = {"auxiliary_train": "aux_train.csv", "test": "test.csv",
+                       "validation": "validation.csv", "dev": "dev.csv"}
+    ds_hendryckstest = load_dataset('hendrycks_test', data_files=hendrycks_files)
